@@ -1,0 +1,42 @@
+.navbar {
+  height: 50px;
+  padding: 2rem;
+  background-color: #003580;
+  display: flex;
+  justify-content: center;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1024px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+}
+
+.navLogo .logo {
+  font-size: 2.5em; /* Increase font size to 2.5em */
+  margin-left: 10px; /* Add some spacing between icon and text */
+}
+
+.navLogo svg {
+  font-size: 2em; /* Increase icon size to 2em */
+}
+
+.logo {
+  font-weight: 500;
+}
+
+.navButton {
+  margin-left: 20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #003580;
+}

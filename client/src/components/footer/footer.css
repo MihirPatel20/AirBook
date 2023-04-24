@@ -8,6 +8,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  padding-inline: 2rem;
+
 }
 
 .fList{

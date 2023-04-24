@@ -9,11 +9,13 @@
 .headerContainer {
   width: 100%;
   max-width: 1024px;
+  padding-inline: 2rem;
+
   margin: 20px 0px 100px 0px;
 }
 
 .headerContainer.listMode {
-  margin: 20px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .headerList {
@@ -48,19 +50,21 @@
 }
 
 .headerSearch {
-  height: 30px;
+  height: calc(50px + 6px);
   background-color: white;
   border: 3px solid #febb02;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 0px;
   border-radius: 5px;
   position: absolute;
-  bottom: -25px;
-  width: 99%;
-  max-width: 1024px;
+  bottom: 20px;
+  width: calc(100% - 4rem);
+  max-width: 960px;
+  box-sizing: border-box;
 }
+
+
 
 .headerIcon {
   color: lightgray;

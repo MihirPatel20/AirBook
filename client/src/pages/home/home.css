@@ -5,6 +5,12 @@
   align-items: center;
   gap: 30px;
 }
+.homeContainer > * {
+  padding-inline: 2rem;
+}
+.homeContainer > .footer {
+  padding-inline: 0rem;
+}
 
 .homeTitle{
   font-size: 20px;

@@ -1,7 +1,7 @@
 import {
-  faBed,
   faCalendarDays,
   faPerson,
+  faPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -12,7 +12,6 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
-import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -32,8 +31,6 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
-
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -58,19 +55,16 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">Where adventure takes flight
-            </h1>
+            <h1 className="headerTitle">Where adventure takes flight</h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
+              Get rewarded for your travels - unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faPlane} className="headerIcon" />
                 <input
                   type="text"
                   placeholder="Where are you going?"
@@ -92,6 +86,7 @@ const Header = ({ type }) => {
                     editableDateInputs={true}
                     onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
+                    onBlur={() => setOpenDate(false)}
                     ranges={dates}
                     className="date"
                     minDate={new Date()}
@@ -102,6 +97,7 @@ const Header = ({ type }) => {
                 <FontAwesomeIcon icon={faPerson} className="headerIcon" />
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
+                  onBlur={() => setOpenOptions(false)}
                   className="headerSearchText"
                 >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
                 {openOptions && (

@@ -18,7 +18,7 @@ const Login = () => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
@@ -48,7 +48,7 @@ const Login = () => {
           onChange={handleChange}
           className="lInput"
         />
-        <button disabled={loading} onClick={handleClick} className="lButton">
+        <button disabled={loading} onClick={handleSubmit} className="lButton">
           Login
         </button>
         {error && <span>{error.message}</span>}

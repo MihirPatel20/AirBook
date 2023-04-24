@@ -1,6 +1,4 @@
 .navbar {
-  height: 50px;
-  padding: 2rem;
   background-color: #003580;
   display: flex;
   justify-content: center;
@@ -8,6 +6,7 @@
 
 .navContainer {
   width: 100%;
+  padding: 1rem 2rem;
   max-width: 1024px;
   color: white;
   display: flex;
@@ -33,10 +32,49 @@
   font-weight: 500;
 }
 
+.user-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.navUsername {
+  font-weight: 600;
+}
+
+/* button */
 .navButton {
-  margin-left: 20px;
-  border: none;
-  padding: 5px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
   cursor: pointer;
-  color: #003580;
+  transition: all 0.3s ease;
+}
+.navButton a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navButton span {
+  color: #ffffff;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navButton:focus {
+  outline: none;
+  border: 2px solid #ffffff;
+}
+
+.navButton svg {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  margin-right: 10px;
 }

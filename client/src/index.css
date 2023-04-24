@@ -1,3 +1,7 @@
-.pi-3{
-    padding-inline: 3rem;
+* {
+    box-sizing: border-box;
+}
+
+.pi-2{
+    padding-inline: 2rem;
 }

@@ -1,8 +1,10 @@
+import MailList from "../mailList/MailList";
 import "./footer.css";
 
 const Footer = () => {
   return (
     <div className="footer">
+      <MailList />
       <div className="fLists">
         <ul className="fList">
           <li className="fListItem">Countries</li>

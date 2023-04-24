@@ -1,15 +1,22 @@
 import "./navbar.css";
-import { faPlane } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import {
+  faArrowRightFromBracket,
+  faCircleUser,
+  faPlane,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const Navbar = () => {
-  
-  
-  const { user } = useContext(AuthContext);
+  const { dispatch, user } = useContext(AuthContext);
+  const location = useLocation();
+
+  const handleClick = () => {
+    dispatch({ type: "LOGOUT" });
+  };
+
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -20,19 +27,38 @@ const Navbar = () => {
           </div>
         </Link>
         {user ? (
-          <div className="navItems">
+          <div className="user-details">
             <span className="navUsername">{user.username}</span>
+            <div className="navButton">
+              <Link
+                to="/login"
+                style={{ textDecoration: "none" }}
+                onClick={handleClick}
+              >
+                <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                <span>Logout</span>
+              </Link>
+            </div>
           </div>
         ) : (
-          <div className="navItems">
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <button className="navButton">Login</button>
-            </Link>
+          <div className="navButton">
+            {location.pathname === "/login" && (
+              <Link to="/register" style={{ textDecoration: "none" }}>
+                <FontAwesomeIcon icon={faCircleUser} />
+                <span>Register</span>
+              </Link>
+            )}
+            {location.pathname !== "/login" && (
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <FontAwesomeIcon icon={faCircleUser} />
+                <span>Login</span>
+              </Link>
+            )}
           </div>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

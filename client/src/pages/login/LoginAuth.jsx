@@ -52,7 +52,7 @@ const LoginAuth = () => {
     console.table(formik.values);
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await fetch("http://localhost:8080/admin/verify-user", {
+      const res = await fetch("/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formik.values),

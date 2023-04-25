@@ -28,7 +28,7 @@ const Navbar = () => {
         </Link>
         {user ? (
           <div className="user-details">
-            <span className="navUsername">{user.username}</span>
+            <span className="navUsername">{user.details.username}</span>
             <div className="navButton">
               <Link
                 to="/login"

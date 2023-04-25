@@ -15,7 +15,7 @@ const NewHotel = () => {
   const [imageArray, setImageArray] = useState([]);
   const navigate = useNavigate();
 
-  const { data, loading, error } = useFetch("/rooms");
+  const { data, loading } = useFetch("/rooms");
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -38,7 +38,7 @@ const NewHotel = () => {
           data.append("file", file);
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/mihir20/image/upload",
+            "https://api.cloudinary.com/v1_1/dibjed3vy/image/upload",
             data
           );
 
@@ -76,7 +76,7 @@ const NewHotel = () => {
                   className="multi-image"
                   key={index}
                   src={file}
-                  alt={`image-${index}`}
+                  alt={`Hotel-${index}`}
                 />
               ))
             ) : (

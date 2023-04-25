@@ -21,7 +21,6 @@
 
 .navLogo .logo {
   font-size: 2.5em; /* Increase font size to 2.5em */
-  margin-left: 10px; /* Add some spacing between icon and text */
 }
 
 .navLogo svg {
@@ -29,7 +28,7 @@
 }
 
 .logo {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .user-details {

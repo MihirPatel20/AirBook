@@ -2,7 +2,6 @@ import "./navbar.css";
 import {
   faArrowRightFromBracket,
   faCircleUser,
-  faPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
@@ -22,8 +21,7 @@ const Navbar = () => {
       <div className="navContainer">
         <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
           <div className="navLogo">
-            <FontAwesomeIcon icon={faPlane} />
-            <span className="logo">AirBook</span>
+            <span className="logo">MERN APP</span>
           </div>
         </Link>
         {user ? (

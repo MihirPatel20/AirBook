@@ -1,5 +1,6 @@
 import {
   faCalendarDays,
+  faHotel,
   faPerson,
   faPlane,
 } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +11,7 @@ import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 
 const Header = ({ type }) => {
@@ -29,7 +30,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleOption = (name, operation) => {
@@ -57,14 +58,32 @@ const Header = ({ type }) => {
       >
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">Where adventure takes flight</h1>
+            <div className="headerTitle">
+              <h1>Where adventure takes flight</h1>
+              <div className="book-switch">
+                {location.pathname === "/flight-booking" && (
+                  <Link to="/" style={{ textDecoration: "none" }}>
+                    <span>Book Hotels!</span>
+                  </Link>
+                )}
+                {location.pathname === "/" && (
+                  <Link to="/flight-booking" style={{ textDecoration: "none" }}>
+                    <span>Book Flights!</span>
+                  </Link>
+                )}
+              </div>
+            </div>
             <p className="headerDesc">
               Get rewarded for your travels - unlock instant savings of 10% or
-              more with a free Lamabooking account
+              more with a free account
             </p>
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPlane} className="headerIcon" />
+                {location.pathname === "/flight-booking" ? (
+                  <FontAwesomeIcon icon={faPlane} className="headerIcon" />
+                ) : (
+                  <FontAwesomeIcon icon={faHotel} className="headerIcon" />
+                )}
                 <input
                   type="text"
                   placeholder="Where are you going?"

@@ -29,7 +29,7 @@ const New = ({ inputs, title }) => {
 
     try {
       const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/mihir20/image/upload",
+        "https://api.cloudinary.com/v1_1/dibjed3vy/image/upload",
         data
       );
 
@@ -41,7 +41,7 @@ const New = ({ inputs, title }) => {
       };
 
       await axios.post("/auth/register", newUser);
-      navigate("/hotels");
+      navigate("/users");
     } catch (err) {
       console.log(err);
     }

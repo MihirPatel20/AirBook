@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 // import "./LoginAuth.scss";
 
 const inputs = [
@@ -65,26 +66,19 @@ const Register = () => {
 
     console.groupCollapsed("Login Data");
     console.log("Submitting form with these values");
-    console.table(formik.values);
-
-    dispatch({ type: "REGISTER_START" });
+    const { confirmPassword, ...payload } = formik.values;
+    console.table(payload);
+    console.groupEnd();
     try {
-      const res = await fetch("http://localhost:8080/admin/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formik.values),
-      });
+      const res = await axios.post("/auth/register", payload);
 
-      const data = await res.json(); // wait for the Promise to resolve
+      const data = res.data; // Get the response data from the Axios response object
 
       console.log("response: ", data);
-      dispatch({ type: "REGISTER_SUCCESS", payload: data });
-      navigate("/");
+      navigate("/login");
     } catch (err) {
-      dispatch({ type: "REGISTER_FAILURE", payload: err.response.data });
+      console.log(err);
     }
-
-    console.groupEnd();
   };
 
   return (
@@ -144,7 +138,6 @@ const Register = () => {
                   <button
                     type="submit"
                     className="btn btn-primary btn-block"
-                    disabled={isSubmitting}
                     onClick={handleSubmit}
                   >
                     REGISTER

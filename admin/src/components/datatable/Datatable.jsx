@@ -1,19 +1,30 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 
-const Datatable = ({columns}) => {
+const Datatable = ({ columns }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();
-  const { data, loading, error } = useFetch(`/${path}`);
+  const { data } = useFetch(
+    `${path === "flights" ? "http://localhost:8080/api/flights" : "/" + path}`
+  );
 
   useEffect(() => {
     setList(data);
+    if (path === "flights") {
+      const newData = data.map((item) => {
+        return {
+          ...item,
+          _id: item.flight_number,
+        };
+      });
+      console.log(newData);
+      setList(newData);
+    }
   }, [data]);
 
   const handleDelete = async (id) => {
@@ -31,9 +42,9 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
+            {/* <Link to="/users/test" style={{ textDecoration: "none" }}> */}
+            <div className="viewButton">View</div>
+            {/* </Link> */}
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row._id)}
@@ -48,7 +59,9 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        {path}
+        <div style={{ fontWeight: "700", marginLeft: "1rem" }}>
+          {path.toUpperCase()}
+        </div>
         <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
@@ -59,7 +72,6 @@ const Datatable = ({columns}) => {
         columns={columns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
-        checkboxSelection
         getRowId={(row) => row._id}
       />
     </div>

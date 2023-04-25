@@ -36,8 +36,14 @@
   border-radius: 20px;
 }
 
+.headerTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
 .headerDesc {
-  margin: 20px 0px;
+  margin-top: 2rem;
 }
 
 .headerBtn {
@@ -50,12 +56,13 @@
 }
 
 .headerSearch {
-  height: calc(50px + 6px);
+  height: calc(50px + 10px);
   background-color: white;
   border: 3px solid #febb02;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-inline: 16px 10px;
   border-radius: 5px;
   position: absolute;
   bottom: 20px;
@@ -63,8 +70,6 @@
   max-width: 960px;
   box-sizing: border-box;
 }
-
-
 
 .headerIcon {
   color: lightgray;
@@ -79,6 +84,7 @@
 .headerSearchInput {
   border: none;
   outline: none;
+  width: 100%;
 }
 
 .headerSearchText {
@@ -129,4 +135,43 @@
 
 .optionCounterButton:disabled {
   cursor: not-allowed;
+}
+
+/* button */
+.book-switch {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 3rem;
+  border: 1px solid white;
+}
+.book-switch a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-switch span {
+  color: #ffffff;
+}
+
+.book-switch:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.book-switch:focus {
+  outline: none;
+  border: 2px solid #ffffff;
+}
+
+.book-switch svg {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  margin-right: 10px;
 }

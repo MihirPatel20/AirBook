@@ -1,7 +1,6 @@
 import "./newRoom.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
@@ -14,7 +13,7 @@ const NewRoom = () => {
   const [rooms, setRooms] = useState([]);
   const navigate = useNavigate();
 
-  const { data, loading, error } = useFetch("/hotels");
+  const { data, loading } = useFetch("/hotels");
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -26,7 +25,7 @@ const NewRoom = () => {
     console.log("data: ", { ...info, roomNumbers });
     try {
       await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
-      navigate("/hotels");
+      navigate("/rooms");
     } catch (err) {
       console.log(err);
     }

@@ -1,5 +1,5 @@
 export const userColumns = [
-  { field: "_id", headerName: "ID", width: 70 },
+  // { field: "_id", headerName: "ID", width: 250 },
   {
     field: "user",
     headerName: "User",
@@ -81,5 +81,42 @@ export const roomColumns = [
     field: "maxPeople",
     headerName: "Max People",
     width: 100,
+  },
+];
+export const flightColumns = [
+  {
+    field: "flight_number",
+    headerName: "Flight Number",
+    width: 130,
+  },
+  {
+    field: "company_name",
+    headerName: "Company Name",
+    width: 150,
+  },
+  {
+    field: "origin",
+    headerName: "Origin",
+    width: 130,
+  },
+  {
+    field: "destination",
+    headerName: "Destination",
+    width: 130,
+  },
+  {
+    field: "arrival_time",
+    headerName: "Arrival time",
+    width: 100,
+  },
+  {
+    field: "departure_time",
+    headerName: "Departure time",
+    width: 120,
+  },
+  {
+    field: "ticket_price",
+    headerName: "Price",
+    width: 50,
   },
 ];

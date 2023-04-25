@@ -6,11 +6,14 @@ import { useState } from "react";
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
+  const [imageArray, setImageArray] = useState([]);
+  const navigate = useNavigate();
 
   const { data, loading, error } = useFetch("/rooms");
 
@@ -25,8 +28,6 @@ const NewHotel = () => {
     );
     setRooms(value);
   };
-  
-  console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -37,7 +38,7 @@ const NewHotel = () => {
           data.append("file", file);
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/lamadev/image/upload",
+            "https://api.cloudinary.com/v1_1/mihir20/image/upload",
             data
           );
 
@@ -53,26 +54,37 @@ const NewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
-    } catch (err) {console.log(err)}
+      navigate("/hotels");
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Product</h1>
+          <h1>Add New Hotel</h1>
         </div>
         <div className="bottom">
           <div className="left">
-            <img
-              src={
-                files
-                  ? URL.createObjectURL(files[0])
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
+            {files && files.length > 0 ? (
+              imageArray.map((file, index) => (
+                <img
+                  className="multi-image"
+                  key={index}
+                  src={file}
+                  alt={`image-${index}`}
+                />
+              ))
+            ) : (
+              <img
+                src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                alt=""
+              />
+            )}
           </div>
           <div className="right">
             <form>
@@ -84,7 +96,14 @@ const NewHotel = () => {
                   type="file"
                   id="file"
                   multiple
-                  onChange={(e) => setFiles(e.target.files)}
+                  onChange={(e) => {
+                    setFiles(e.target.files);
+                    const imageArray = Array.from(e.target.files).map((file) =>
+                      URL.createObjectURL(file)
+                    );
+                    setImageArray(imageArray);
+                    console.log("image array:", imageArray);
+                  }}
                   style={{ display: "none" }}
                 />
               </div>

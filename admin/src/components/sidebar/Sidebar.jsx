@@ -4,11 +4,19 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
+import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    // Remove the user data from localStorage
+    localStorage.removeItem("user");
+    // Navigate to the login page
+    navigate("/login");
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -50,7 +58,7 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li onClick={handleLogOut}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>

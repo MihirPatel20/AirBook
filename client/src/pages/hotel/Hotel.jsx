@@ -1,7 +1,6 @@
 import "./hotel.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -98,7 +97,6 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -134,10 +132,13 @@ const Hotel = () => {
                   Located in the real heart of Krakow, this property has an
                   excellent location score of 9.8!
                 </span>
-                <h2>
+                  {dates[0]?.endDate ? (<h2>
                   <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
                   nights)
-                </h2>
+                </h2>) : (<h2>
+                  <b>$300</b> ({3}{" "}
+                  nights)
+                </h2>)}
                 <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
             </div>

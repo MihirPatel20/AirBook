@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
-import Inventory from "./pages/InventoryManagement/InventoryManagement";
 import Register from "./pages/Register/Register";
 import FlightHome from "./flight/FlightHome/FlightHome";
 import FlightList from "./flight/FlightList/FlightList";
@@ -25,7 +24,6 @@ function App() {
           <Route path="/hotels/:id" element={<Hotel />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/prod" element={<Inventory />} />
         </Routes>
       </BrowserRouter>
     </div>

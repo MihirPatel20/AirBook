@@ -57,7 +57,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const { error, dispatch } = useContext(AuthContext);
+  const { error } = useContext(AuthContext);
   const formikRef = useRef();
   const navigate = useNavigate();
 

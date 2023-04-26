@@ -25,7 +25,7 @@ const Datatable = ({ columns }) => {
       console.log(newData);
       setList(newData);
     }
-  }, [data]);
+  }, [data, path]);
 
   const handleDelete = async (id) => {
     try {

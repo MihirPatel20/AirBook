@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="navContainer">
         <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
           <div className="navLogo">
-            <span className="logo">MERN APP</span>
+            <span className="logo">MERN TRAVEL</span>
           </div>
         </Link>
         {user ? (

@@ -10,11 +10,15 @@
 
 .flightLogo {
   width: 40px;
+  height: 40px;
 }
 
 .flightObject {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: minmax(50px, 50px) minmax(100px, 1fr) minmax(
+      150px,
+      1fr
+    ) minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
 
   gap: 16px;
   padding: 1rem;

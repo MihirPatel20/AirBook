@@ -146,3 +146,43 @@ export const roomInputs = [
     placeholder: "2",
   },
 ];
+
+export const flightInputs = [
+  {
+    id: "stops",
+    label: "Stops",
+    type: "number",
+    placeholder: "3",
+  },
+  {
+    id: "origin",
+    label: "Origin",
+    type: "text",
+    placeholder: "Toronto",
+  },
+
+  {
+    id: "destination",
+    label: "Destination",
+    type: "text",
+    placeholder: "Denver",
+  },
+  {
+    id: "departure_time",
+    label: "Departure time",
+    type: "time",
+    placeholder: "05:48 AM",
+  },
+  {
+    id: "arrival_time",
+    label: "Arrival time",
+    type: "time",
+    placeholder: "12:59 PM",
+  },
+  {
+    id: "ticket_price",
+    label: "Price",
+    type: "number",
+    placeholder: "150",
+  },
+];

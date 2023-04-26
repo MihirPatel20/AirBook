@@ -44,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },"proxy":"http://localhost:8800/api"
+  },
+  "proxy": "http://localhost:8800/api",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
 }

@@ -1,17 +1,16 @@
 import { calculateDuration } from "../../functions/CalculateDuration";
 import useFetch from "../../hooks/useFetch";
-import "./FeaturedFlights.css";
+import "./AllFlights.css";
 import { Link } from "react-router-dom";
+import { faker } from "@faker-js/faker";
 
-const FeaturedFlights = ({ city }) => {
+const AllFlights = () => {
   //   const { data, loading } = useFetch("/hotels?featured=true&limit=4");
   const { data, loading } = useFetch("http://localhost:8080/api/flights");
-  const cityData = data.filter((item) => item?.origin === city);
-  console.log(cityData);
 
-  if (cityData.length > 0) {
-    console.log("true");
-  }
+  // if(cityData.length < 1){
+  //   cityData = data
+  // }
 
   return (
     <div className="flightContainer">
@@ -19,7 +18,7 @@ const FeaturedFlights = ({ city }) => {
         "Loading"
       ) : (
         <>
-          {cityData.map((item) => (
+          {data.map((item) => (
             <Link
               className="flightObject"
               target="_blank"
@@ -50,7 +49,11 @@ const FeaturedFlights = ({ city }) => {
               </div>
               <div className="flightStops">
                 <span>{item?.stops} Stops</span>
-                <span>CAD, AMD, MMB</span>
+                <span>
+                  {Array.from({ length: item?.stops }, () =>
+                    faker.address.countryCode('alpha-3')
+                  ).join(" - ")}
+                </span>
               </div>
               <div className="flightPrice">
                 <span>${item?.ticket_price}</span>
@@ -64,4 +67,4 @@ const FeaturedFlights = ({ city }) => {
   );
 };
 
-export default FeaturedFlights;
+export default AllFlights;

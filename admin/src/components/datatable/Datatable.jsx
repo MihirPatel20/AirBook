@@ -14,7 +14,6 @@ const Datatable = ({ columns }) => {
   );
 
   useEffect(() => {
-    setList(data);
     if (path === "flights") {
       const newData = data.map((item) => {
         return {
@@ -24,14 +23,32 @@ const Datatable = ({ columns }) => {
       });
       console.log(newData);
       setList(newData);
+    } else {
+      setList(data);
     }
-  }, [data, path]);
+  }, [data]);
 
   const handleDelete = async (id) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (!confirmed) {
+      return;
+    }
+
     try {
-      await axios.delete(`/${path}/${id}`);
+      if (path === "flights") {
+        await axios.delete(`http://localhost:8080/api/flights/delete/${id}`);
+        console.log("Flight deleted");
+      } else {
+        await axios.delete(`/${path}/${id}`);
+        console.log(`${path} Flight deleted`);
+      }
+
       setList(list.filter((item) => item._id !== id));
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const actionColumn = [

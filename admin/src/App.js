@@ -16,6 +16,7 @@ import {
 } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
+import NewFlight from "./pages/newFlight/NewFlight";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -83,7 +84,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <New inputs={userInputs} title="Add New User" />
+                    <NewFlight />
                   </ProtectedRoute>
                 }
               />

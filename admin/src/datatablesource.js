@@ -7,7 +7,11 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
+          <img
+            className="cellImg"
+            src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
+            alt="avatar"
+          />
           {params.row.username}
         </div>
       );
@@ -120,3 +124,14 @@ export const flightColumns = [
     width: 50,
   },
 ];
+
+//         "stops": 2,
+//         "origin": "Canada",
+//         "destination": "Tokyo",
+//         "departure_time": "2023-05-01T10:00:00Z",
+//         "arrival_time": "2023-05-01T13:00:00Z",
+//         "ticket_price": 200.0,
+//         "company_name": "Air Canada",
+//         "company_image_url": "https://w7.pngwing.com/pngs/218/449/png-transparent-air-canada.png",
+//         "redirect_url": "https://www.aircanada.com/ca/en/aco/home.html",
+//         "total_time": "2 hr 20 min"

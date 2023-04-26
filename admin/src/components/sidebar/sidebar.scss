@@ -2,6 +2,7 @@
   flex: 1;
   border-right: 0.5px solid rgb(230, 227, 227);
   min-height: 100vh;
+  max-width: 140px;
   background-color: white;
 
   .top {
@@ -13,7 +14,7 @@
     .logo {
       font-size: 20px;
       font-weight: bold;
-      color: #6439ff;
+      color: #191CB7;
     }
   }
 
@@ -42,6 +43,7 @@
         display: flex;
         align-items: center;
         padding: 5px;
+        padding-right: 1rem;
         cursor: pointer;
 
         &:hover {
@@ -49,12 +51,12 @@
         }
 
         .icon {
-          font-size: 18px;
-          color: #7451f8;
+          font-size: 1.5rem;
+          color: #191CB7;
         }
 
         span{
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             color: #888;
             margin-left: 10px;

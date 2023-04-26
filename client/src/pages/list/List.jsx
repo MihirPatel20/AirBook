@@ -35,27 +35,27 @@ const List = () => {
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
-            <h1 className="lsTitle">Search</h1>
+            <h1 className="lsTitle">SEARCH</h1>
             <div className="lsItem">
               <label>Destination</label>
               <input
-                placeholder={destination}
+                placeholder={destination || "Enter City Name"}
                 onChange={(e) => setDestination(e.target.value)}
                 type="text"
               />
             </div>
-            <div className="lsItem">
+            <div className="lsItem calender-container">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 dates[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
+                "dd/MM/yyyy"
+              )} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
               {openDate && (
-                <DateRange
-                  onChange={(item) => setDates([item.selection])}
-                  minDate={new Date()}
-                  ranges={dates}
-                />
+                  <DateRange className="calender"
+                    onChange={(item) => setDates([item.selection])}
+                    minDate={new Date()}
+                    ranges={dates}
+                  />
               )}
             </div>
             <div className="lsItem">

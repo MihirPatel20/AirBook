@@ -3,12 +3,17 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import New from "./pages/newUser/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import {  userInputs } from "./formSource";
+import { userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { flightColumns, hotelColumns, roomColumns, userColumns } from "./datatablesource";
+import {
+  flightColumns,
+  hotelColumns,
+  roomColumns,
+  userColumns,
+} from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 
@@ -50,11 +55,7 @@ function App() {
               />
               <Route
                 path=":userId"
-                element={
-                  <ProtectedRoute>
-                    {/* <Single /> */}
-                  </ProtectedRoute>
-                }
+                element={<ProtectedRoute>{/* <Single /> */}</ProtectedRoute>}
               />
               <Route
                 path="new"
@@ -76,11 +77,7 @@ function App() {
               />
               <Route
                 path=":userId"
-                element={
-                  <ProtectedRoute>
-                    {/* <Single /> */}
-                  </ProtectedRoute>
-                }
+                element={<ProtectedRoute>{/* <Single /> */}</ProtectedRoute>}
               />
               <Route
                 path="new"
@@ -102,17 +99,13 @@ function App() {
               />
               <Route
                 path=":productId"
-                element={
-                  <ProtectedRoute>
-                    {/* <Single /> */}
-                  </ProtectedRoute>
-                }
+                element={<ProtectedRoute>{/* <Single /> */}</ProtectedRoute>}
               />
               <Route
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewHotel  />
+                    <NewHotel />
                   </ProtectedRoute>
                 }
               />
@@ -128,17 +121,13 @@ function App() {
               />
               <Route
                 path=":productId"
-                element={
-                  <ProtectedRoute>
-                    {/* <Single /> */}
-                  </ProtectedRoute>
-                }
+                element={<ProtectedRoute>{/* <Single /> */}</ProtectedRoute>}
               />
               <Route
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewRoom  />
+                    <NewRoom />
                   </ProtectedRoute>
                 }
               />

@@ -14,17 +14,21 @@
 
 .listSearch {
   flex: 1;
-  background-color: #febb02;
-  padding: 10px;
+  /* background-color: #7a5e00; */
+  margin-top: 5rem;
+  padding: 16px;
+  border: 2px solid #101275;
   border-radius: 10px;
   position: sticky;
   top: 10px;
+  min-width: 250px;
   height: max-content;
 }
 
 .lsTitle{
   font-size: 20px;
-  color: #555;
+  font-weight: 700;
+  color: #101275;
   margin-bottom: 10px;
 }
 
@@ -36,32 +40,49 @@
 }
 
 .lsItem>label{
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(53, 53, 53);
 }
 
 .lsItem>input{
   height: 30px;
-  border: none;
+  border: 1px solid #101275;
+  border-radius: 3px;
   padding: 5px;
 }
 .lsItem>span{
   height: 30px;
   padding: 5px;
+  border: 1px solid #101275;
+  border-radius: 3px;
   background-color: white;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
+.calender-container{
+  position: relative;
+}
+.lsItem>.calender{
+  position: absolute;
+  top: 65px;
+  left: 0px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
 .lsOptions{
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .lsOptionItem{
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #555;
+  /* color: white; */
   font-size: 12px;
 }
 
@@ -71,7 +92,8 @@
 
 .listSearch>button{
   padding: 10px;
-  background-color: #0071c2;
+  background-color: #101275;
+  border-radius: 5px;
   color: white;
   border: none;
   width: 100%;
